@@ -5,12 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HushedAlways的个人网站</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; transition: background-color 0.5s; }
-        header, footer { background-color: #f1f1f1; padding: 20px; text-align: center; }
-        nav, .skills, .blog-posts { padding: 20px; }
-        .skill { margin: 10px 0; }
-        .blog-post { margin-bottom: 20px; }
-        button.language-switch { margin-top: 10px; }
+        :root {
+            --primary-color: #007bff;
+            --text-color: #212529;
+            --background-color: #f8f9fa;
+        }
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        header, footer {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background: #333;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        main {
+            padding: 20px;
+        }
+        @media screen and (max-width: 768px) {
+            nav a {
+                float: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -20,55 +56,34 @@
 </header>
 
 <nav>
-    <a href="#skills">技能</a>
-    <a href="#blog">博客</a>
+    <a href="#home">首页</a>
+    <a href="#about">关于我</a>
+    <a href="#projects">项目展示</a>
     <a href="#contact">联系方式</a>
-    <button class="language-switch">切换语言</button>
 </nav>
 
 <main>
-    <section id="skills">
-        <h2>我的技能</h2>
-        <div class="skills">
-            <div class="skill"><strong>Python</strong>: <progress value="90" max="100"></progress> 90%</div>
-            <div class="skill"><strong>JavaScript</strong>: <progress value="80" max="100"></progress> 80%</div>
-            <!-- 更多技能 -->
-        </div>
+    <section id="home">
+        <h2>首页</h2>
+        <p>这里是你的个人简介或欢迎语。</p>
     </section>
-    <section id="blog">
-        <h2>最新博客文章</h2>
-        <div class="blog-posts">
-            <article class="blog-post">
-                <h3>文章标题1</h3>
-                <p>文章摘要1...</p>
-                <a href="#">阅读更多</a>
-            </article>
-            <article class="blog-post">
-                <h3>文章标题2</h3>
-                <p>文章摘要2...</p>
-                <a href="#">阅读更多</a>
-            </article>
-            <!-- 更多文章 -->
-        </div>
+    <section id="about">
+        <h2>关于我</h2>
+        <p>介绍你的职业背景、兴趣爱好等信息。</p>
+    </section>
+    <section id="projects">
+        <h2>项目展示</h2>
+        <p>描述一些你曾参与的项目或个人作品。</p>
     </section>
     <section id="contact">
         <h2>联系方式</h2>
-        <!-- 联系方式内容 -->
+        <p>提供你的电子邮箱、社交媒体账号等联系方式。</p>
     </section>
 </main>
 
 <footer>
     <p>版权所有 &copy; 2024 HushedAlways</p>
 </footer>
-
-<script>
-    // 示例：切换主题和模拟语言切换
-    // 注意：这里的语言切换仅作演示，实际实现需考虑国际化方案
-    document.querySelector('.language-switch').addEventListener('click', () => {
-        alert('模拟切换语言');
-        // 实际项目中这里可以调用国际化库或切换语言资源
-    });
-</script>
 
 </body>
 </html>
