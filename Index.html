@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HushedAlways的个人网站</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; transition: background-color 0.5s; }
+        header, footer { background-color: #f1f1f1; padding: 20px; text-align: center; }
+        nav, .skills, .blog-posts { padding: 20px; }
+        .skill { margin: 10px 0; }
+        .blog-post { margin-bottom: 20px; }
+        button.language-switch { margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>欢迎来到HushedAlways的个人网站</h1>
+</header>
+
+<nav>
+    <a href="#skills">技能</a>
+    <a href="#blog">博客</a>
+    <a href="#contact">联系方式</a>
+    <button class="language-switch">切换语言</button>
+</nav>
+
+<main>
+    <section id="skills">
+        <h2>我的技能</h2>
+        <div class="skills">
+            <div class="skill"><strong>Python</strong>: <progress value="90" max="100"></progress> 90%</div>
+            <div class="skill"><strong>JavaScript</strong>: <progress value="80" max="100"></progress> 80%</div>
+            <!-- 更多技能 -->
+        </div>
+    </section>
+    <section id="blog">
+        <h2>最新博客文章</h2>
+        <div class="blog-posts">
+            <article class="blog-post">
+                <h3>文章标题1</h3>
+                <p>文章摘要1...</p>
+                <a href="#">阅读更多</a>
+            </article>
+            <article class="blog-post">
+                <h3>文章标题2</h3>
+                <p>文章摘要2...</p>
+                <a href="#">阅读更多</a>
+            </article>
+            <!-- 更多文章 -->
+        </div>
+    </section>
+    <section id="contact">
+        <h2>联系方式</h2>
+        <!-- 联系方式内容 -->
+    </section>
+</main>
+
+<footer>
+    <p>版权所有 &copy; 2024 HushedAlways</p>
+</footer>
+
+<script>
+    // 示例：切换主题和模拟语言切换
+    // 注意：这里的语言切换仅作演示，实际实现需考虑国际化方案
+    document.querySelector('.language-switch').addEventListener('click', () => {
+        alert('模拟切换语言');
+        // 实际项目中这里可以调用国际化库或切换语言资源
+    });
+</script>
+
+</body>
+</html>
