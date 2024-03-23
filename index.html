@@ -4,65 +4,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>微光破晓工程组</title>
+    <title>这里，是HushedAlways</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --text-color: #212529;
-            --modal-background-color: #ffffff;
-            --overlay-color: rgba(0, 0, 0, 0.5);
-        }
-
         body {
-            font-family: 'Open Sans', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            line-height: 1.7;
+            color: #ffffff;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #871F78);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
         }
 
         header,
         footer {
-            background-color: #f1f1f1;
-            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
             text-align: center;
+            padding: 1rem 0;
         }
 
-        nav {
-            background: #333;
-            overflow: hidden;
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            margin: 0;
         }
 
-        nav a,
-        .toggle-dark-mode {
-            display: block;
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
             color: white;
-            text-align: center;
-            padding: 14px 20px;
             text-decoration: none;
+            font-weight: 600;
+            padding: 10px;
+            display: inline-block;
+            transition: color 0.3s ease;
         }
 
-        nav a:hover,
-        .toggle-dark-mode:hover {
-            background-color: #ddd;
-            color: black;
+        nav ul li a:hover {
+            color: #007bff;
         }
 
         .container {
+            max-width: 1100px;
+            margin: auto;
             padding: 20px;
         }
 
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+        }
+
+        .blog-post {
+            margin-bottom: 2rem;
+        }
+
+        .blog-post h3,
+        .blog-post .date,
+        .container h2,
+        .container p {
+            color: #ffffff;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         .card {
-            background-color: var(--modal-background-color);
+            background-color: rgba(255, 255, 255, 0.7);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             transition: 0.3s;
             width: 300px;
             margin: 10px;
             display: inline-block;
             border-radius: 5px;
-            cursor: pointer;
         }
 
         .card:hover {
@@ -87,128 +146,281 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: var(--overlay-color);
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.7);
+            padding-top: 60px;
         }
 
-        .modal-content {
-            background-color: var(--modal-background-color);
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            border-radius: 5px;
-        }
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    color: black;
+}
+
 
         .close {
             color: #aaa;
             float: right;
             font-size: 28px;
             font-weight: bold;
-            cursor: pointer;
         }
 
         .close:hover,
         .close:focus {
             color: black;
             text-decoration: none;
+            cursor: pointer;
         }
 
-        @media screen and (max-width: 768px) {
-            nav a,
-            .toggle-dark-mode {
-                float: none;
-                text-align: left;
-            }
-
-            .modal-content {
-                width: 90%;
-            }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #ddd;
         }
+
+        .progress-bar {
+            height: 30px;
+            background-color: #4CAF50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
+        .modal-content {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    color: black;
+}
+
+.acknowledgments-list {
+    list-style-type: none; /* 移除默认的列表样式 */
+    padding: 0;
+}
+
+.acknowledgments-list li {
+    margin-bottom: 10px; /* 添加一些间距让列表项不那么挤在一起 */
+    font-size: 16px; /* 适当的字号 */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
     </style>
 </head>
 
 <body>
 
     <header>
-        <h1>汇聚的星星之火终将燎原</h1>
+        <h1 id="typing-header">筚路蓝缕，栉风沐雨</h1>
     </header>
 
-<body>
-
-<div id="immersive-translate-popup" style="all: initial"></div>
-    
     <nav>
-        <a href="#home">简单地认识一下</a>
-        <a href="#about">关于我们</a>
-        <a href="#projects">项目展示</a>
-        <a href="#join">加入我们</a>
-        <span class="toggle-dark-mode">Light/Dark</span>
+        <ul>
+            <li><a href="#home">唠叨汤剂</a></li>
+            <li><a href="#about">还原反应</a></li>
+            <li><a href="#projects">项目橱窗</a></li>
+            <li><a href="#contact">一览成员</a></li>
+            <li><a href="#blog">最新公告</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('thanksModal')">鸣谢</a></li>
+        </ul>
     </nav>
 
-    <div class="container">
-        <section id="home">
-            <h2>认识一下</h2>
-            <p>这里是微光破晓工程组，一个非盈利性的公益组织，存在的目的是为了给大家提供一个互相交流、一起进步、共同探讨编程的话题，进而让大家聚在一起办成一个人办不到的事。</p>
-        </section>
-        <section id="about">
-            <h2>原形立现！</h2>
-            <p>工作室创始层：<br>HushedAlways：初中在读，精通Scratch3.0与VBS、BAT；会HTML、Python、前端；现任李於生科创工作室2026届班长<br>Tsukada：初中在读，精通Python，会Web开发、Scratch3.0；现任李於生科创工作室2026届纪律委员<br>蒲：初中在读，精通Web开发、网络安全</p>
-        </section>
-        <section id="projects">
-            <h2>项目展示</h2>
-            <!-- 示例项目卡片 -->
-            <div class="card" data-modal="modal1">
-                <img src="project1.jpg" alt="竣工项目">
-                <div class="card-container">
-                    <h4><b>工作室静态官网组建</b></h4>
-                    <p>如你所见，这个网站就是微光破晓工程组的第一个集体代码编程的成品项目</p>
-                </div>
-            </div>
-            <!-- Modal1 -->
-            <div id="modal1" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>工作室静态官网组建项目 详细信息</h2>
-                    <p>利用GitHub Pages进行托管，用100%自主开发的HTML语言进行编写而成<br>主要参与者（按照贡献排序）：HushedAlways、h4xx0rz、城木</p>
-                </div>
-            </div>
-        </section>
-        <section id="join">
-            <h2>加入我们</h2>
-            <p>请加入QQ群754452059</p>
-            <!-- QQ群按钮 -->
-            <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=U3suwc2vJhTW1qOVUUqC331DFaFZHEeT&jump_from=webapi&authKey=fr9w8LfeEX8azyUoHM8H+gqoCPdJDsW91f7Fgb6AgmHkft3tyE2Cr24f2zgasZtB">加入我们</a>
-        </section>
+<!-- Modal for Acknowledgements -->
+<div id="thanksModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('thanksModal')">&times;</span>
+        <h2>鸣谢</h2>
+        <ul class="acknowledgments-list">
+            <li>HushedAlways - 直接构建了第一、二两期的所有代码</li>
+            <li>微光破晓工程组技术部 - 感谢你们的团队协作和创新精神。</li>
+            <li>GitHub - 为我们提供了开发和托管项目的平台。</li>
+        </ul>
     </div>
+</div>
+
+
+    <main>
+        <section id="home" class="container">
+            <h2>唠叨汤剂</h2>
+            <p id="modern-philosophical-quote"></p> <!-- Placeholder for displaying modern philosophical quotes -->
+        </section>
+
+        <section id="about" class="container">
+            <h2>不忘初心</h2>
+            <p>不啻微茫，方可造炬成阳。<br>没有人能够熄灭满天的星光，因此每一位开发者，都是我们要汇聚的星星之火！<br>今天，星星之火将汇聚成漫天的璀璨星河！</p>
+            <a target="_blank"
+                href="https://qm.qq.com/cgi-bin/qm/qr?k=U3suwc2vJhTW1qOVUUqC331DFaFZHEeT&jump_from=webapi&authKey=fr9w8LfeEX8azyUoHM8H+gqoCPdJDsW91f7Fgb6AgmHkft3tyE2Cr24f2zgasZtV">
+                <button>加入我们</button>
+        </section>
+
+
+        <section id="projects" class="container">
+            <h2>不违本心</h2>
+            <div class="card" onclick="openModal('modal1')">
+                <img src="" alt="竣工项目">
+                <div class="card-container">
+                    <h4><b>工作室静态网站组建</b></h4>
+                    <p>如你所见，这个网站就是我们的第一个具有完全自主知识产权的代码编程的成品项目</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('modal1')">
+                <img src="" alt="竣工项目">
+                <div class="card-container">
+                    <h4><b>2024年“图灵杯”工作室内部活动项目</b></h4>
+                    <p>不限语言，不限方式，以“创新”为赛点提交作品参赛<br>敬献给 过去一年的烟雨</p>
+                </div>
+            </div>
+            <h2>突出贡献者项目</h2>
+            <!-- 此栏禁止任何方式非法修改 -->
+            <div class="card" onclick="openModal('modal1')">
+                <img src="" alt="创始层-HushedaAlways">
+                <div class="card-container">
+                    <h4><b>个人静态网站组建</b></h4>
+                    <p>hushedalways.github.io</p>
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="contact" class="container">
+            <h2>一览成员</h2>
+            <p>工程组当前公开的成员联系方式：</p>
+            <div class="social-icons">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=3531831289&site=qq&menu=yes" title="创始层HushedAlways的QQ"><i
+                        class="fab fa-qq"></i></a>
+                <a href="https://github.com/HushedAlways" target="_blank" title="创始层HushedAlways的GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://github.com/Dinowritecode" target="_blank"><i
+                        class="fabfa-github">前端工程师，vue框架爱好者，会socket，后端主要研究rust，撒网重点捞鱼嘛！</i></a>
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=3290226529&site=qq&menu=yes" title="创始层Tsukada的QQ"><i
+                        class="fab fa-qq"></i></a>
+            </div>
+        </section>
+
+        <section id="blog" class="container">
+            <h2>最新公告</h2>
+            <div class="blog-post">
+                <h3>“图灵杯”创作比赛</h3>
+                <p class="date">2024年3月20日</p>
+                <p>第一名奖励50Zy，第二名奖励10Zy，第三名提升所属层次一级（管理层除外）并加5Zy，第四、五名转正（已转正勿论）并加1Zy<br>并不是参与者都有名次，名次也并不是一定有人，但还是请各位积极参与。你不参与一定没有。</p>
+            </div>
+            <div class="blog-post">
+                <h3>[置顶]Zy公示榜</h3>
+                <p class="date">公平公正 履行职责</p>
+                <p>声明：排名按最初获得Zy的时间降序排列，编辑者 创始层-HushedAlways</p>
+                <p>技术部-h4xx0rz  5Zy</p>
+                <p>技术部-GALAXY  5Zy</p>
+            </div>
+        </section>
+    </main>
+
+    <button class="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
     <footer>
-        <p>版权所有 &copy; 2024 致敬每一位开发者，还有——你<br>微光破晓工程组</p>
+        <p>致敬每一位开发者，还有——你<br>版权所有 &copy; 2024 微光破晓工程组</p>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cards = document.querySelectorAll('.card');
-            const modals = document.querySelectorAll('.modal');
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
 
-            cards.forEach(card => {
-                card.addEventListener('click', function () {
-                    const modalId = this.getAttribute('data-modal');
-                    document.getElementById(modalId).style.display = "block";
-                });
-            });
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
 
-            modals.forEach(modal => {
-                modal.querySelector('.close').addEventListener('click', function () {
-                    modal.style.display = "none";
-                });
-            });
+document.addEventListener('DOMContentLoaded', () => {
+    const typingHeaderElement = document.getElementById('typing-header');
+    const quoteContainer = document.getElementById('modern-philosophical-quote');
+    const initialText = '这里是';
+    const texts = ['微光破晓工程组', 'DAWNLIGHT'];
+    let currentTextIndex = 0;
+    const typingSpeed = 100;
 
-            document.querySelector('.toggle-dark-mode').addEventListener('click', function () {
-                document.body.classList.toggle('dark-mode');
+    const modernPhilosophicalQuotes = [
+        "于明镜前审视自我，于幻象中寻觅真相。",
+        "实现明天的唯一限制，就是我们今天的怀疑。",
+        "挽狂澜于既倒，扶大厦之将倾",
+        "将只手，补天裂",
+        "成功不是终点，失败也不是终结：唯有勇气才是永恒。",
+        "我们唯一需要害怕的，是恐惧本身。这很有智慧。",
+        "不忘初心，不违本心，不负真心。",
+        "如果相信能做到，那么就成功了一半。",
+        "不要等到铁热了才打，而是要通过敲打使它变热。",
+        "生命中最大的荣耀不在于从未跌倒，而在于每次跌倒后都能重新站起来。",
+        "唯一不可能的旅程，就是从未涉足的道路。",
+        "成功就是从失败到失败，但热情不减。",
+    ];
+    let quoteIndex = Math.floor(Math.random() * modernPhilosophicalQuotes.length);
+
+    // 设置固定文本
+    typingHeaderElement.textContent = initialText;
+
+    // 文本打印函数
+    function typeText(element, text, index, callback) {
+        if (index < text.length) {
+            element.textContent += text.charAt(index);
+            setTimeout(() => typeText(element, text, index + 1, callback), typingSpeed);
+        } else if (callback) {
+            setTimeout(callback, 2000); // 延时后执行回调
+        }
+    }
+
+    // 清除文本函数，保留前缀
+    function clearText(element, prefix, callback) {
+        if (element.textContent.length > prefix.length) {
+            element.textContent = element.textContent.substring(0, element.textContent.length - 1);
+            setTimeout(() => clearText(element, prefix, callback), typingSpeed);
+        } else if (callback) {
+            callback();
+        }
+    }
+
+    // 启动标题文本打印
+    function startHeaderTextProcess() {
+        const textToAdd = texts[currentTextIndex];
+        typeText(typingHeaderElement, textToAdd, 0, () => {
+            clearText(typingHeaderElement, initialText, () => {
+                currentTextIndex = (currentTextIndex + 1) % texts.length; // 循环文本数组
+                startHeaderTextProcess();
             });
         });
+    }
+
+    // 启动唠叨汤剂打印
+    function startPhilosophicalQuoteProcess() {
+        const quote = modernPhilosophicalQuotes[quoteIndex];
+        typeText(quoteContainer, quote, 0, () => {
+            clearText(quoteContainer, '', () => {
+                quoteIndex = (quoteIndex + 1) % modernPhilosophicalQuotes.length;
+                startPhilosophicalQuoteProcess();
+            });
+        });
+    }
+
+    startHeaderTextProcess();
+    startPhilosophicalQuoteProcess();
+});
+
+        startProcess();
+
     </script>
 
 </body>
-
-</html>
