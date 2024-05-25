@@ -1,429 +1,68 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAWNLIGHT｜微光破晓</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
-            color: #ffffff;
-            background: linear-gradient(-45deg, #99FFFF, #00FFFF, #CC33FF, #FF0099);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-        }
-
-        header,
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            color: #ffffff;
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.8);
-            margin: 0;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 10px;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #ffffff;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        @media screen and (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-        }
-
-        .blog-post {
-            margin-bottom: 2rem;
-        }
-
-        .blog-post h3,
-        .blog-post .date,
-        .container h2,
-        .container p {
-            color: #330066;
-        }
-
-        .social-icons a {
-            margin: 0 10px;
-            color: #330066;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: #330066;
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #33FFCC;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            cursor: pointer;
-            display: none;
-            transition: opacity 0.3s ease;
-        }
-
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            width: 300px;
-            margin: 10px;
-            display: inline-block;
-            border-radius: 5px;
-        }
-
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        }
-
-        .card img {
-            width: 100%;
-            border-radius: 5px 5px 0 0;
-        }
-
-        .card-container {
-            padding: 2px 16px;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.7);
-            padding-top: 60px;
-        }
-
-.modal-content {
-    background-color: rgba(255, 255, 255, 0.5);
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    color: black;
-}
-
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .progress-bar-container {
-            width: 100%;
-            background-color: #ddd;
-        }
-
-        .progress-bar {
-            height: 30px;
-            background-color: #33FFCC;
-            text-align: center;
-            line-height: 30px;
-            color: white;
-        }
-
-        .modal-content {
-    background-color: rgba(255, 255, 255, 0.8);
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    color: black;
-}
-
-.acknowledgments-list {
-    list-style-type: none; /* 移除默认的列表样式 */
-    padding: 0;
-}
-
-.acknowledgments-list li {
-    margin-bottom: 10px; /* 添加一些间距让列表项不那么挤在一起 */
-    font-size: 16px; /* 适当的字号 */
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-    </style>
+    <title>DawnLight•微光破晓工作室</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <button id="sidebar-toggle" class="sidebar-toggle">&#9776;</button>
 
-    <header>
-        <h1 id="typing-header">筚路蓝缕，栉风沐雨</h1>
-    </header>
-
-    <nav>
+    <nav class="side-nav" id="side-nav">
         <ul>
-            <li><a href="#home">唠叨汤剂</a></li>
-            <li><a href="#about">加入我们</a></li>
-            <li><a href="#projects">项目橱窗</a></li>
-            <li><a href="#contact">还原反应</a></li>
-            <li><a href="#blog">最新公告</a></li>
-            <li><a href="javascript:void(0)" onclick="openModal('thanksModal')">鸣谢致敬</a></li>
+            <li><a href="#home">出发的地方</a></li>
+            <li><a href="#about">还原反应</a></li>
+            <li><a href="#blog">征程印记</a></li>
+            <li><a href="#contact">汇聚星河</a></li>
+            <li><a href="#acknowledgement">鸣谢</a></li>
         </ul>
     </nav>
 
-<!-- Modal for Acknowledgements -->
-<div id="thanksModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('thanksModal')">&times;</span>
-        <h2>鸣谢</h2>
-        <ul class="acknowledgments-list">
-            <li>HushedAlways - 直接构建了第一、二两期的所有代码</li>
-            <li>GALAXY - 提供了许多想法，包括宣传视频、英文名称等</li>
-            <li>h4xx0rz - 为网站的搭建也出了一份力，同时提供了部分灵感</li>
-            <li>GitHub - 为我们提供了开发和托管项目的平台</li>
-            <li>ZspecialnY - 热爱永不退去，友谊永不落幕</li>
-            <li>还有————你</li>
-        </ul>
+    <div class="content">
+        <header id="home">
+            <h1>欢迎，欢迎你这粒星点<br>再璀璨的星河都由你们一个个星点汇聚而成/h1>
+        </header>
+
+        <section id="about">
+            <h2>此之谓何事？</h2>
+            <p>＜n>不错，你可以理解为这是一个自发性组织的编程交流平台。</n>真正的初心就是提供一个大家能相互交流学习的渠道，让大家在编程的道路上能真正找到志同道合的伙伴并解决学习上遇到的疑问。<br>微光破晓工程组中给大家汇聚每一个个体力量，寄希望于能让它办到一个人办不到的事情，让成员在学习进步中收获成长。<br>你且听这卧龙长吟动天地，你且看这朽木花发惊满城。</p>
+        </section>
+
+        <section id="blog">
+            <h2>征程印记</h2>
+            <div class="blog-post">
+                <div class="post-border"> <!-- 添加文章边框容器 -->
+                    <h3>（置顶）壹 汇聚星河：微光破晓工程组</h3>
+                    <p>没有人能够熄灭满天的星光，因此每一位开发者，都是我们要汇聚的星星之火！今天，星星之火将汇聚成漫天的璀璨星河！<br>微光破晓工程组（DAWNLIGHT TEAM），正式成立于2024年4月30日，由一群志同道合的同志自发组织的一个互联网编程技术交流平台和技术项目开发工作室。官网https://dawnlightteam.github.io/</p>
+                </div>
+                <div class="post-border"> <!-- 添加文章边框容器 -->
+                    <h3>（未知时间）贰 未知标题</h3>
+                    <p>未知内容</p>
+                </div>
+                <div class="post-border"> <!-- 添加文章边框容器 -->
+                    <h3>（Time）叁 Title</h3>
+                    <p>Passages</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>有事找我？</h2>
+            <p><del>你是谁？你有什么大事？你哪里配找我！</del><br>开个玩笑，本人在大多数平台上都有账号，具体详见：</p>
+            <p>E-mail:lunyunr@outlook.com<br>QQ:3534831289（验证消息答案：氯金酸）（Verification message answer: 氯金酸）<br>WeChat:KirinInitiAlways</p>
+        </section>
+
+        <section id="acknowledgement">
+            <h2>鸣谢</h2>
+            <p>本站在搭建过程中离不开每一个人的支持：</p>
+            <p>合道知晚（琳匀），直接独立构建了Zn10的所有代码<br>🍋：为HAuCl₄提供了开发系列名称的灵感<br><del>ZspecialnY：未铭记何谈淡忘，仍在此表示为了忘却的纪念</del><br>DawnLight Team：为HAuCl₄提供在CSS语言技术上的系列灵感启发<br>GitHub：为HAuCl₄提供了重要网站托管服务支持<br>最后，还有————你</p>
+        </section>
+
+        <button class="theme-button" onclick="toggleTheme()">切换主题</button>
+        <button onclick="window.scrollTo(0, 0)" class="top-button">回到顶部🔝</button>
     </div>
-</div>
 
-
-    <main>
-        <section id="home" class="container">
-            <h2>唠叨汤剂</h2>
-            <p id="modern-philosophical-quote"></p> <!-- Placeholder for displaying modern philosophical quotes -->
-        </section>
-
-        <section id="about" class="container">
-            <h2>不忘初心</h2>
-            <p>不啻微茫，方可造炬成阳。<br>没有人能够熄灭满天的星光，因此每一位开发者，都是我们要汇聚的星星之火！<br>今天，星星之火将汇聚成漫天的璀璨星河！</p>
-            <a target="_blank"
-                href="https://qm.qq.com/cgi-bin/qm/qr?k=U3suwc2vJhTW1qOVUUqC331DFaFZHEeT&jump_from=webapi&authKey=fr9w8LfeEX8azyUoHM8H+gqoCPdJDsW91f7Fgb6AgmHkft3tyE2Cr24f2zgasZtV">
-                <button>加入我们</button>
-        </section>
-
-
-        <section id="projects" class="container">
-            <h2>项目橱窗</h2>
-            <div class="card" onclick="openModal('modal1')">
-                <img src="" alt="竣工项目">
-                <div class="card-container">
-                    <h4><b>工作室静态网站组建</b></h4>
-                    <p>如你所见，这个网站就是我们的第一个具有完全自主知识产权的代码编程的成品项目</p>
-                </div>
-            </div>
-
-            <div class="card" onclick="openModal('modal1')">
-                <img src="" alt="竣工项目">
-                <div class="card-container">
-                    <h4><b>2024年“图灵杯”工作室内部活动项目</b></h4>
-                    <p>不限语言，不限方式，以“创新”为赛点提交作品参赛<br>敬献给 过去一年的烟雨</p>
-                </div>
-            </div>
-            <h2>突出贡献者项目</h2>
-            <!-- 此栏禁止任何方式非法修改 -->
-            <div class="card" onclick="openModal('modal1')">
-                <img src="" alt="创始层-HushedaAlways">
-                <div class="card-container">
-                    <h4><b>个人静态网站组建</b></h4>
-                    <p>hushedalways.github.io</p>
-                </div>
-            </div>
-            
-        </section>
-
-        <section id="contact" class="container">
-            <h2>还原反应</h2>
-            <p>工程组当前公开的成员联系方式：</p>
-            <div class="social-icons">
-                <a href="http://wpa.qq.com/msgrd?v=3&uin=3531831289&site=qq&menu=yes" title="创始层HushedAlways的QQ"><i
-                        class="fab fa-qq"></i></a>
-                <a href="https://github.com/HushedAlways" target="_blank" title="创始层HushedAlways的GitHub"><i
-                        class="fab fa-github"></i></a>
-                <a href="https://github.com/Dinowritecode" target="_blank" title="技术部HyDrogen的GitHub"><i
-                        class="fab fa-github"></i></a>
-                <a href="http://wpa.qq.com/msgrd?v=3&uin=3290226529&site=qq&menu=yes" title="创始层Tsukada的QQ"><i
-                        class="fab fa-qq"></i></a>
-            </div>
-        </section>
-
-        <section id="blog" class="container">
-            <h2>最新公告</h2>
-            <div class="blog-post">
-                <h3>“图灵杯”创作比赛</h3>
-                <p class="date">2024年3月20日</p>
-                <p>第一名奖励50Zy，第二名奖励10Zy，第三名提升所属层次一级（管理层除外）并加5Zy，第四、五名转正（已转正勿论）并加1Zy<br>并不是参与者都有名次，名次也并不是一定有人，但还是请各位积极参与。你不参与一定没有。</p>
-            </div>
-            <div class="blog-post">
-                <h3>[置顶]Zy公示榜</h3>
-                <p class="date">公平公正 履行职责</p>
-                <p>声明：排名按最初获得Zy的时间降序排列，编辑者 创始层-HushedAlways</p>
-                <p>技术部-h4xx0rz  5Zy</p>
-                <p>技术部-GALAXY  5Zy</p>
-            </div>
-        </section>
-    </main>
-
-    <button class="back-to-top"><i class="fas fa-arrow-up"></i></button>
-
-    <footer>
-        <p>致敬每一位开发者，还有——你<br>版权所有 &copy; 2024 微光破晓工程组</p>
-    </footer>
-
-    <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = "block";
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
-        }
-
-document.addEventListener('DOMContentLoaded', () => {
-    const typingHeaderElement = document.getElementById('typing-header');
-    const quoteContainer = document.getElementById('modern-philosophical-quote');
-    const initialText = '这里是';
-    const texts = ['微光破晓工程组', 'DAWNLIGHT'];
-    let currentTextIndex = 0;
-    const typingSpeed = 100;
-
-    const modernPhilosophicalQuotes = [
-        "于明镜前审视自我，于幻象中寻觅真相。",
-        "实现明天的唯一限制，就是我们今天的怀疑。",
-        "挽狂澜于既倒，扶大厦之将倾",
-        "将只手，补天裂",
-        "成功不是终点，失败也不是终结：唯有勇气才是永恒。",
-        "我们唯一需要害怕的，是恐惧本身。这很有智慧。",
-        "不忘初心，不违本心，不负真心。",
-        "如果相信能做到，那么就成功了一半。",
-        "不要等到铁热了才打，而是要通过敲打使它变热。",
-        "生命中最大的荣耀不在于从未跌倒，而在于每次跌倒后都能重新站起来。",
-        "唯一不可能的旅程，就是从未涉足的道路。",
-        "成功就是从失败到失败，但热情不减。",
-    ];
-    let quoteIndex = Math.floor(Math.random() * modernPhilosophicalQuotes.length);
-
-    // 设置固定文本
-    typingHeaderElement.textContent = initialText;
-
-    // 文本打印函数
-    function typeText(element, text, index, callback) {
-        if (index < text.length) {
-            element.textContent += text.charAt(index);
-            setTimeout(() => typeText(element, text, index + 1, callback), typingSpeed);
-        } else if (callback) {
-            setTimeout(callback, 2000); // 延时后执行回调
-        }
-    }
-
-    // 清除文本函数，保留前缀
-    function clearText(element, prefix, callback) {
-        if (element.textContent.length > prefix.length) {
-            element.textContent = element.textContent.substring(0, element.textContent.length - 1);
-            setTimeout(() => clearText(element, prefix, callback), typingSpeed);
-        } else if (callback) {
-            callback();
-        }
-    }
-
-    // 启动标题文本打印
-    function startHeaderTextProcess() {
-        const textToAdd = texts[currentTextIndex];
-        typeText(typingHeaderElement, textToAdd, 0, () => {
-            clearText(typingHeaderElement, initialText, () => {
-                currentTextIndex = (currentTextIndex + 1) % texts.length; // 循环文本数组
-                startHeaderTextProcess();
-            });
-        });
-    }
-
-    // 启动唠叨汤剂打印
-    function startPhilosophicalQuoteProcess() {
-        const quote = modernPhilosophicalQuotes[quoteIndex];
-        typeText(quoteContainer, quote, 0, () => {
-            clearText(quoteContainer, '', () => {
-                quoteIndex = (quoteIndex + 1) % modernPhilosophicalQuotes.length;
-                startPhilosophicalQuoteProcess();
-            });
-        });
-    }
-
-    startHeaderTextProcess();
-    startPhilosophicalQuoteProcess();
-});
-
-        startProcess();
-
-    </script>
-
+    <script src="script.js"></script>
 </body>
+</html>
